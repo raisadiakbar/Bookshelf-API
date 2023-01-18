@@ -130,13 +130,6 @@ class Controller {
 }
     static async deleteBooks(req, res, next) {
         const id = req.params.id;
-
-        if (!id) return next ({ 
-            status: "fail",
-            message: "Buku gagal dihapus. id tidak ditemukan"
-         });
-
-
         try {
             await Books.destroy({
                 where: {

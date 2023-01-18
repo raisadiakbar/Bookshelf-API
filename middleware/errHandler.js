@@ -7,15 +7,32 @@ function errorHandler (err, req, res, next) {
       message = 'Please login first to access this endpoint.'
     }
   
-    else if (err.message === 'Unsupport file format') {
-      status = 400;
-      message = `Unsupport file format. Can only accept ${err.support} format.`;
+    else if (err.message ===  'id tidak ditemukan' ) {
+      status = 404;
+      message = `buku ${id} tidak ditemukan`;
+    }
+
+    else if (err.message ===  'id tidak ditemukan' ) {
+      status = 404;
+      message = `Buku gagal dihapus. ${id} tidak ditemukan`;
+    }
+
+    else if (err.message ===  'id tidak ditemukan' ) {
+      status = 404;
+      message = `Buku gagal diperbarui. ${id} tidak ditemukan`;
+    }
+
+    else if (err.message ===  'id tidak ditemukan' ) {
+      status = 404;
+      message = `Buku gagal dihapus. ${id} tidak ditemukan`;
     }
 
     
   return res.status(status).json({
     status: status,
-    message
+    error: {
+      message
+  }
   })
 }
 
